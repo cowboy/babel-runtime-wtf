@@ -8,7 +8,7 @@ $ npm install
 
 # This makes sense to me:
 
-$ node ./index.js
+$ node ./index
 /private/tmp/test/index.js:1
 (function (exports, require, module, __filename, __dirname) { let x = y
                                                               ^^^
@@ -24,8 +24,8 @@ SyntaxError: Block-scoped declarations (let, const, function, class) not yet sup
     at node.js:961:3
 
 # This doesn't make sense to me. Why is the initial line number 3? Why does the
-# code example show the original code (let x = y) instead of the transpiled code
-# (var x = y;)?
+# code example show the transpiled code (var x = y;) instead of the original
+# code (let x = y)?
 
 $ node -r babel-register ./index
 /private/tmp/test/index.js:3
