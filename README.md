@@ -4,27 +4,11 @@ _(Should have been named babel-register-wtf, whoops)_
 
 ## What am I doing wrong with babel-register?
 
+* Issue filed at <https://phabricator.babeljs.io/T7018>
+
 ```bash
 $ npm install
 ...
-
-# The error from this command makes sense to me. Without "use strict", node
-# can't handle "let".
-
-$ node ./index
-/private/tmp/test/index.js:1
-(function (exports, require, module, __filename, __dirname) { let x = y
-                                                              ^^^
-
-SyntaxError: Block-scoped declarations (let, const, function, class) not yet supported outside strict mode
-    at exports.runInThisContext (vm.js:53:16)
-    at Module._compile (module.js:414:25)
-    at Object.Module._extensions..js (module.js:442:10)
-    at Module.load (module.js:356:32)
-    at Function.Module._load (module.js:311:12)
-    at Function.Module.runMain (module.js:467:10)
-    at startup (node.js:134:18)
-    at node.js:961:3
 
 # This error doesn't make sense to me. Why is the initial line number 3? Why
 # does the code example show the transpiled code (var x = y;) instead of the
